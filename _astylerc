@@ -1,0 +1,8 @@
+--style=kr      # this is a line-end comment
+indent=spaces=2
+# long options can be written without the preceding '--'
+indent-switches     # cannot do this on the command line
+# Indent ifdef
+indent-preproc-block
+indent-preproc-cond
+indent-preproc-define

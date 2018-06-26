@@ -1,0 +1,24 @@
+// Place your settings in this file to overwrite default and user settings.
+{
+    // Unofficially, QMK uses spaces for indentation
+    "astyle.astylerc": "${workspaceRoot}/_astylerc",
+    "editor.formatOnSave": true,
+    "editor.formatOnType": true,
+    // "editor.formatOnSaveTimeout": 1200,
+    //   "editor.insertSpaces": true,
+    // Configure glob patterns for excluding files and folders.
+    "files.exclude": {
+        "**/.build": true,
+        "**/*.hex": true
+    },
+    "files.associations": {
+        "*.h": "c",
+        "*.c": "c",
+        "*.cpp": "cpp",
+        "*.hpp": "cpp",
+        "xstddef": "c",
+        "algorithm": "c"
+    },
+    "terminal.integrated.shell.windows": "C:\\Windows\\System32\\bash.exe",
+    "C_Cpp.formatting": "Disabled"
+}
