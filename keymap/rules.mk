@@ -18,4 +18,4 @@
 # /* prevent stuck modifiers */
 # #define PREVENT_STUCK_MODIFIERS
 
-RAW_ENABLE = yes
+# RAW_ENABLE = yes
