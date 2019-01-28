@@ -19,3 +19,6 @@
 # #define PREVENT_STUCK_MODIFIERS
 
 # RAW_ENABLE = yes
+
+
+DEBOUNCE = 15
