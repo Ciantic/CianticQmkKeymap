@@ -3,7 +3,7 @@
 #include "action_layer.h"
 // #include "debug.h"
 #include "version.h"
-// #include "raw_hid.h"
+#include "raw_hid.h"
 
 #define MY_HID_REPORT 0x02
 #define MY_HID_CMD 0x01
@@ -78,9 +78,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record)
       break;
     case RGB_SLD:
       if (record->event.pressed) {
-        #ifdef RGBLIGHT_ENABLE
         rgblight_mode(1);
-        #endif
       }
       return false;
       break;
@@ -112,9 +110,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record)
 // Runs just one time when the keyboard initializes.
 void matrix_init_user(void)
 {
-  #ifdef RGBLIGHT_COLOR_LAYER_0
-  rgblight_setrgb(RGBLIGHT_COLOR_LAYER_0);
-  #endif
+
 };
 
 // Runs constantly in the background, in a loop.
@@ -126,7 +122,7 @@ void matrix_scan_user(void)
 // Runs whenever there is a layer state change.
 uint32_t layer_state_set_user(uint32_t state)
 {
-  ergodox_board_led_off();
+  // ergodox_board_led_off();
   ergodox_right_led_1_off();
   ergodox_right_led_2_off();
   ergodox_right_led_3_off();
@@ -134,71 +130,40 @@ uint32_t layer_state_set_user(uint32_t state)
   uint8_t layer = biton32(state);
 
   // Inform raw hid on layer change
-  /*
   uint8_t data[RAW_EPSIZE];
   data[0] = MY_HID_REPORT;
   data[1] = R_LAYER_CHANGE;
   data[2] = layer;
   raw_hid_send(data, RAW_EPSIZE);
-  */
+    
   switch (layer) {
     case 0:
-      /*
-      #ifdef RGBLIGHT_COLOR_LAYER_0
-      rgblight_setrgb(RGBLIGHT_COLOR_LAYER_0);
-      #else
-      #ifdef RGBLIGHT_ENABLE
-      rgblight_init();
-      #endif
-      #endif
-      */
       break;
     case 1:
       ergodox_right_led_1_on();
-      #ifdef RGBLIGHT_COLOR_LAYER_1
-      rgblight_setrgb(RGBLIGHT_COLOR_LAYER_1);
-      #endif
       break;
     case 2:
       ergodox_right_led_2_on();
-      #ifdef RGBLIGHT_COLOR_LAYER_2
-      rgblight_setrgb(RGBLIGHT_COLOR_LAYER_2);
-      #endif
       break;
     case 3:
       ergodox_right_led_3_on();
-      #ifdef RGBLIGHT_COLOR_LAYER_3
-      rgblight_setrgb(RGBLIGHT_COLOR_LAYER_3);
-      #endif
       break;
     case 4:
       ergodox_right_led_1_on();
       ergodox_right_led_2_on();
-      #ifdef RGBLIGHT_COLOR_LAYER_4
-      rgblight_setrgb(RGBLIGHT_COLOR_LAYER_4);
-      #endif
       break;
     case 5:
       ergodox_right_led_1_on();
       ergodox_right_led_3_on();
-      #ifdef RGBLIGHT_COLOR_LAYER_5
-      rgblight_setrgb(RGBLIGHT_COLOR_LAYER_5);
-      #endif
       break;
     case 6:
       ergodox_right_led_2_on();
       ergodox_right_led_3_on();
-      #ifdef RGBLIGHT_COLOR_LAYER_6
-      rgblight_setrgb(RGBLIGHT_COLOR_LAYER_6);
-      #endif
       break;
     case 7:
       ergodox_right_led_1_on();
       ergodox_right_led_2_on();
       ergodox_right_led_3_on();
-      #ifdef RGBLIGHT_COLOR_LAYER_7
-      rgblight_setrgb(RGBLIGHT_COLOR_LAYER_6);
-      #endif
       break;
     default:
       break;
@@ -210,7 +175,8 @@ uint32_t layer_state_set_user(uint32_t state)
 /** \brief Raw HID Receive
  *
  * FIXME: Needs doc
-__attribute__ ((weak))
+__attribute__ ((weak)) 
+*/
 void raw_hid_receive( uint8_t *data, uint8_t length )
 {
   if (data[0] != MY_HID_CMD)
@@ -227,5 +193,3 @@ void raw_hid_receive( uint8_t *data, uint8_t length )
   }
   raw_hid_send( data, length );
 }
-*/
-
