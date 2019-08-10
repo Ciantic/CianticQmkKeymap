@@ -7,6 +7,10 @@
         // update Dockerfile with your user's UID/GID if not 1000.
         // "-u", "vscode",
 
+        // Mounts the .vscode directory to qmk_firmware
+        "--mount",
+        "type=bind,src=C:\\Source\\CandCPP\\CianticQmkKeymap\\.vscode,dst=/qmk_firmware/.vscode",
+
         // Mounts the *BUILD* directory back to host computer
         "--mount",
         "type=bind,src=C:\\Source\\CandCPP\\CianticQmkKeymap\\build,dst=/qmk_firmware/.build",
