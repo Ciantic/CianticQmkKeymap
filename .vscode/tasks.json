@@ -6,7 +6,8 @@
         {
             "label": "Build and flash",
             "type": "shell",
-            "command": ".\\build.ps1; if ($?) { .\\flash.ps1 }"
+            "command": ".\\build.ps1; if ($?) { .\\flash.ps1 }",
+            "problemMatcher": []
         }
     ]
 }
