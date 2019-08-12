@@ -1,7 +1,10 @@
 {
     "name": "C++",
     "dockerFile": "Dockerfile",
-    "extensions": ["ms-vscode.cpptools", "Ciantic.keymapceditor-vsc"],
+    "extensions": [
+        "ms-vscode.cpptools", 
+        "Ciantic.keymapceditor-vsc"
+    ],
     "runArgs": [
         // Comment out the next line to run as root instead. Linux users,
         // update Dockerfile with your user's UID/GID if not 1000.
@@ -9,19 +12,11 @@
 
         // Mounts the .vscode directory to qmk_firmware
         "--mount",
-        "type=bind,src=C:\\Source\\CandCPP\\CianticQmkKeymap\\.vscode,dst=/qmk_firmware/.vscode",
+        "type=bind,src=C:\\Source\\CandCPP\\CianticQmkKeymap\\.devcontainer\\.vscode,dst=/qmk_firmware/.vscode",
 
-        // Mounts the *BUILD* directory back to host computer
+        // Mounts the /out directory back to host computer
         "--mount",
-        "type=bind,src=C:\\Source\\CandCPP\\CianticQmkKeymap\\build,dst=/qmk_firmware/.build",
-
-        // Do NOT mount /qmk_firmware/.build/obj_ergodox_ez
-        "--mount",
-        "type=volume,dst=/qmk_firmware/.build/obj_ergodox_ez",
-
-        // Do NOT mount /qmk_firmware/.build/obj_ergodox_ez_ciantic
-        "--mount",
-        "type=volume,dst=/qmk_firmware/.build/obj_ergodox_ez_ciantic",
+        "type=bind,src=C:\\Source\\CandCPP\\CianticQmkKeymap\\build,dst=/out",
 
         "--cap-add=SYS_PTRACE",
         "--security-opt",

@@ -1,0 +1,8 @@
+{
+    "files.associations": {
+        "ergodox_ez.h": "c",
+        "quantum.h": "c",
+        "delay.h": "c",
+        "i2c_master.h": "c"
+    }
+}

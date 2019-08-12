@@ -1,0 +1,17 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build",
+            "type": "shell",
+            // "command": "make clean && make ergodox_ez:ciantic:teensy TEENSY_LOADER_CLI=util/wsl_downloaded/teensy_loader_cli.exe",
+            "command": "make ergodox_ez:ciantic && cp .build/ergodox_ez_ciantic.hex /out",
+            "problemMatcher": []
+        },
+        {
+            "label": "flash",
+            "type": "shell",
+            "command": "./flash.ps1"
+        }
+    ]
+}

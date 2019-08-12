@@ -1,12 +1,12 @@
 {
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "build",
+            "label": "Build and flash",
             "type": "shell",
-            // "command": "make clean && make ergodox_ez:ciantic:teensy TEENSY_LOADER_CLI=util/wsl_downloaded/teensy_loader_cli.exe",
-            "command": "make ergodox_ez:ciantic",
-            "problemMatcher": []
+            "command": ".\\build.ps1; if ($?) { .\\flash.ps1 }"
         }
     ]
 }

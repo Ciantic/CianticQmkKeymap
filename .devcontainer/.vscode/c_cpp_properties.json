@@ -1,12 +1,13 @@
 {
+    "enableConfigurationSquiggles": true,
     "configurations": [
         {
             "name": "Linux",
             "includePath": [
-                "${workspaceFolder}/**",
+                "${default}",
                 "/usr/lib/avr/include"
             ],
-            "defines": [ "FOO", "BAR=100" ],
+            "defines": [ "FOO", "BAR=100", "${default}" ],
             "compilerPath": "/usr/bin/gcc",
             "cStandard": "c11",
             "cppStandard": "c++17",

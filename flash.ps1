@@ -17,3 +17,8 @@ if (-not (Test-Path "teensy_loader_cli.exe")) {
 }
 
 .\teensy_loader_cli.exe -w -v --mcu=atmega32u4 build/ergodox_ez_ciantic.hex
+
+if (-not $?) {
+    Write-Error "Flashing failed"
+    Exit 1
+}
