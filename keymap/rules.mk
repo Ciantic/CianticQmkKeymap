@@ -21,6 +21,8 @@
 RAW_ENABLE = yes
 
 # Wake-up problemen 2019-08-13 https://github.com/qmk/qmk_firmware/issues/6369
+#
+# Tested 2020-02-11, the patch did not work!
 NO_USB_STARTUP_CHECK = yes
 
 DEBOUNCE = 15
