@@ -1,5 +1,8 @@
 # Build my fimware
 
+# Update with:
+# docker pull qmkfm/qmk_firmware
+
 docker run --rm -it `
     -v ${pwd}/build:/out `
     -v ${pwd}/keymap:/qmk_firmware/keyboards/ergodox_ez/keymaps/ciantic `
