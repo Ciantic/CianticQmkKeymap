@@ -18,6 +18,8 @@
 # /* prevent stuck modifiers */
 # #define PREVENT_STUCK_MODIFIERS
 
+RGBLIGHT_ENABLE = yes
+
 RAW_ENABLE = yes
 
 # Wake-up problemen 2019-08-13 https://github.com/qmk/qmk_firmware/issues/6369
